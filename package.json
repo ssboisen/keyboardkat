@@ -22,7 +22,7 @@
     "accessibility"
   ],
   "author": "Simon Skov Boisen <simon@skov-boisen.dk>",
-  "license": "MIT",
+	"license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/ssboisen/keyboardkat/issues"
   },
