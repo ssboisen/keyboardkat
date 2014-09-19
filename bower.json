@@ -1,0 +1,32 @@
+{
+  "name": "KeyboardKat",
+  "main": "KeyboardKat.js",
+  "version": "0.0.1",
+  "authors": [
+    "Simon Skov Boisen <simon@skov-boisen.dk>"
+  ],
+  "description": "Even deadlier than Mousetrap",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "keyboard",
+    "shortcuts",
+    "keybinding",
+    "accessibility"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ssboisen/keyboardkat",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mousetrap": "~1.4.6"
+  }
+}
