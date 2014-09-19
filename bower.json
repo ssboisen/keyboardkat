@@ -1,7 +1,7 @@
 {
-  "name": "KeyboardKat",
-  "main": "KeyboardKat.js",
-  "version": "0.0.1",
+  "name": "keyboardkat",
+  "main": "keyboardkat.js",
+  "version": "0.1.0",
   "authors": [
     "Simon Skov Boisen <simon@skov-boisen.dk>"
   ],
@@ -11,6 +11,10 @@
     "globals",
     "node"
   ],
+	"repository": {
+		  "type": "git",
+			"url": "git://github.com/ssboisen/keyboardkat.git"
+	},
   "keywords": [
     "keyboard",
     "shortcuts",
