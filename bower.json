@@ -24,13 +24,13 @@
   "license": "MIT",
   "homepage": "https://github.com/ssboisen/keyboardkat",
   "ignore": [
-    "**/.*",
+		"./*.js",
     "node_modules",
     "bower_components",
     "test",
     "tests"
   ],
-  "dependencies": {
+  "devDependencies": {
     "mousetrap": "~1.4.6"
   }
 }
