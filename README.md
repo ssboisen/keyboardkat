@@ -4,6 +4,8 @@ KeyboardKat is a simple library for handling keyboard shortcuts in JavaScript th
 
 It adds a few features on top of those already available in Mousetrap but support the same api as Mousetrap for a drop-in replacement.
 
+It supports both amd and node-style modules as well as regular oldschool global style.
+
 It is licensed under the Apache 2.0 license.
 
 It is around **2.6kb** minified and gzipped and **5.9kb** minified, when embedding Mousetrap.
@@ -38,7 +40,10 @@ If you would like to donate to help support Mousetrap development use [Gittip](h
             // and stop event from bubbling
             return false;
         });
-
+        
+        // using flaps to namespace bindings
+        KeyboardKat.bind('?', 'settings', function () { console.log('show settings specific shortcuts!'); });
+        
         // gmail style sequences
         KeyboardKat.bind('g i', function() { console.log('go to inbox'); });
         KeyboardKat.bind('* a', function() { console.log('select all'); });
