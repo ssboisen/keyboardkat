@@ -3,9 +3,14 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
+    del = require('del'),
     spawn = require('child_process').spawn;
- 
-gulp.task('bower', function (cb) {
+
+gulp.task('clean', function (cb) {
+  del(['dist/', 'bower_components/'], cb);
+});
+
+gulp.task('bower', ['clean'], function (cb) {
     var bower = spawn('bower', ['install']);
     bower.on('close', function (code) {
 
