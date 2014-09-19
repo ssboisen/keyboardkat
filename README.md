@@ -14,13 +14,15 @@ If you would like to donate to help support Mousetrap development use [Gittip](h
 
 ## Getting started
 
-1.  Include KeyboardKat with Mousetrap embedded inside on your page before the closing ``</body>`` tag
+1.  Use bower to install KeyboardKat by running `bower install --save KeyboardKat`
+
+2.  Include KeyboardKat with Mousetrap embedded inside on your page before the closing ``</body>`` tag
 
     ```html
-    <script src="keyboardkat-combined.min.js"></script>
+    <script src="bower_compoenents/keyboardkat/keyboardkat-combined.min.js"></script>
     ```
 
-2.  Add some keyboard events to listen for
+3.  Add some keyboard events to listen for
 
     ```html
     <script>
@@ -57,11 +59,11 @@ If you would like to donate to help support Mousetrap development use [Gittip](h
 
 ## Why KeyboardKat?
 
-Mousetrap is an excellent library, probably the best keybinding library available ([read why here](https://github.com/ccampbell/mousetrap#why-mousetrap)).
+KeyboardKat stands on the shoulders of giants by utilizing Mousetrap which is an excellent keybinding library. It's probably the best core keybinding library available ([read why here](https://github.com/ccampbell/mousetrap#why-mousetrap)).
 
 However it is missing a few features that can be useful to have. 
 
-If you need to have multiple bindings for the same keys and the ability to toggle sets of bindings on and off at will KeyboardKat is for you.
+If you need to have multiple bindings for the same keys or the ability to toggle sets of bindings on and off at will KeyboardKat is for you.
 
 With *flaps* you can namespace your callback bindings such that KeyboardKat has to be using that specific flap in order to execute those callbacks.
 
@@ -111,3 +113,5 @@ mousetrap.min.js
 mousetrap-global-bind.min.js
 keyboardkat.min.js
 ```
+
+If you already use Mousetrap in your application or if you use requirejs' r.js to concat and minify just grab `keyboardkat.js`. Otherwise it's easiest to use `keyboardkat-combined.min.js` which embeds Mousetrap.
