@@ -59,3 +59,16 @@ If you need to have multiple bindings for the same keys maybe even for different
 
 With *flaps* you can namespace your callback bindings such that KeyboardKat has to be using that specific flap in order to execute those callbacks.
 
+## Documentation
+
+Documentation about Mousetrap can be found [here](http://craig.is/killing/mice).
+
+### KeyboardKat.bind(keys[, flap][, action], callback)
+
+Takes keys, optional flap and action as well as a callback and binds the keys to the callback. If no flap is provided the callback will be registered to the default `all` flap. For information about how to format keys see the Mousetrap documentation.
+
+Returns a function that can be called inorder to unbind that specific callback.
+
+### KeyboardKat.bindGlobal(keys[, flap][, action], callback)
+
+Works as bind with the exception that globally registered bindings also trigger when the source of the key-strokes are textarea or input fields.
