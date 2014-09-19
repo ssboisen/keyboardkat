@@ -49,13 +49,14 @@ If you would like to donate to help support Mousetrap development use [Gittip](h
         });
     </script>
     ```
+
 ## Why KeyboardKat?
 
-Mousetrap is an excellent library, probably the best keybinding library available ([read more why here](https://github.com/ccampbell/mousetrap#why-mousetrap)).
+Mousetrap is an excellent library, probably the best keybinding library available ([read why here](https://github.com/ccampbell/mousetrap#why-mousetrap)).
 
 However it is missing a few features that can be useful to have. 
 
-If you need to have multiple bindings for the same keys maybe even for different sections of your application KeyboardKat is for you.
+If you need to have multiple bindings for the same keys and the ability to toggle sets of bindings on and off at will KeyboardKat is for you.
 
 With *flaps* you can namespace your callback bindings such that KeyboardKat has to be using that specific flap in order to execute those callbacks.
 
@@ -65,10 +66,26 @@ Documentation about Mousetrap can be found [here](http://craig.is/killing/mice).
 
 ### KeyboardKat.bind(keys[, flap][, action], callback)
 
-Takes keys, optional flap and action as well as a callback and binds the keys to the callback. If no flap is provided the callback will be registered to the default `all` flap. For information about how to format keys see the Mousetrap documentation.
+Takes keys, optional flap and action as well as a callback and binds the keys to the callback. If no flap is provided the callback will be registered to the default `all` flap. Bindings with the `all` flap are always invoked. For information about how to format keys see the Mousetrap documentation.
 
 Returns a function that can be called inorder to unbind that specific callback.
 
 ### KeyboardKat.bindGlobal(keys[, flap][, action], callback)
 
-Works as bind with the exception that globally registered bindings also trigger when the source of the key-strokes are textarea or input fields.
+Works exactly as bind with the exception that globally registered bindings also trigger when the source of the key-strokes are textarea, select or input fields.
+
+### KeyboardKat.unbind(keys[, flap])
+
+Removes all bindings for the keys assigned to a specific flap. If no flap is given the default `all` flap is assumed.  If you only wish to unbind one specific binding you should invoke the function that is returned from either bind or bindGlobal.
+
+### KeyboardKat.useFlap([flap])
+
+Changes the current flap to be this specific flap. If no flap is given changes the flap to the default `all` flap.
+
+### KeyboardKat.trigger(keys[, action])
+
+Emulates that these specific keys have been pressed. This is internally to KeyboardKat and Mousetrap and the keys are not actually triggered in the browser.
+
+### KeyboardKat.reset()
+
+Removes all bindings.
