@@ -17,13 +17,12 @@ gulp.task('bower', function (cb) {
     });
 });
 
-gulp.task('copy-to-dist', function () {
+gulp.task('copy-to-dist', ['bower'], function () {
   return gulp.src(['keyboardkat.js', 'bower_components/mousetrap/mousetrap.js', 'bower_components/mousetrap/plugins/global-bind/mousetrap-global-bind.js'])
              .pipe(gulp.dest('dist'));
-
 });
 
-gulp.task('embed-mousetrap', ['copy-to-dist', 'bower'], function () {
+gulp.task('embed-mousetrap', ['copy-to-dist'], function () {
   return gulp.src(['dist/mousetrap.js', 'dist/mousetrap-global-bind.js', 'dist/keyboardkat.js'])
              .pipe(concat('keyboardkat-combined.js'))
              .pipe(wrap('(function() {\n<%= contents %>\n})();'))
