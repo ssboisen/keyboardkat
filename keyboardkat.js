@@ -1,6 +1,6 @@
 (function(name, definition, context) {
-  if (typeof module != 'undefined') module.exports = definition(context.Mousetrap);
-  else if (typeof define == 'function' && typeof define.amd == 'object') define(name, ['Mousetrap'], definition);
+  if (typeof context.module != 'undefined') context.module.exports = definition(context.Mousetrap);
+  else if (typeof context.define == 'function' && typeof context.define.amd == 'object') context.define(name, ['Mousetrap'], definition);
   else context[name] = definition(context.Mousetrap);
 
   delete context.Mousetrap;
