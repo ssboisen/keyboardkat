@@ -23,7 +23,7 @@ gulp.task('bower', ['clean'], function (cb) {
 });
 
 gulp.task('copy-to-dist', ['bower'], function () {
-  return gulp.src(['keyboardkat.js', 'bower_components/mousetrap/mousetrap.js', 'bower_components/mousetrap/plugins/global-bind/mousetrap-global-bind.js'])
+  return gulp.src(['src/keyboardkat.js', 'bower_components/mousetrap/mousetrap.js', 'bower_components/mousetrap/plugins/global-bind/mousetrap-global-bind.js'])
              .pipe(gulp.dest('dist'));
 });
 

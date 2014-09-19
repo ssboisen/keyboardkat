@@ -1,7 +1,7 @@
 {
   "name": "keyboardkat",
   "main": "keyboardkat.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "authors": [
     "Simon Skov Boisen <simon@skov-boisen.dk>"
   ],
@@ -24,8 +24,9 @@
   "license": "MIT",
   "homepage": "https://github.com/ssboisen/keyboardkat",
   "ignore": [
-		"./gulpfile.js",
-		"./keyboardkat.js",
+		"gulpfile.js",
+		"package.json",
+		"src",
     "node_modules",
     "bower_components",
     "test",
