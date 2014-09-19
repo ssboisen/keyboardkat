@@ -14,10 +14,10 @@ If you would like to donate to help support Mousetrap development use [Gittip](h
 
 ## Getting started
 
-1.  Include mousetrap on your page before the closing ``</body>`` tag
+1.  Include KeyboardKat with Mousetrap embedded inside on your page before the closing ``</body>`` tag
 
     ```html
-    <script src="/path/to/keyboadkat-combined.min.js"></script>
+    <script src="keyboardkat-combined.min.js"></script>
     ```
 
 2.  Add some keyboard events to listen for
@@ -65,7 +65,7 @@ If you need to have multiple bindings for the same keys and the ability to toggl
 
 With *flaps* you can namespace your callback bindings such that KeyboardKat has to be using that specific flap in order to execute those callbacks.
 
-## Documentation
+## API Documentation
 
 Documentation about Mousetrap can be found [here](http://craig.is/killing/mice).
 
@@ -94,3 +94,20 @@ Emulates that these specific keys have been pressed. This is internally to Keybo
 ### KeyboardKat.reset()
 
 Removes all bindings.
+
+## Building
+
+In order to build KeyboardKat for distribution first run `npm install -g gulp && npm install`. Now you run `gulp publish` and the `dist/` directory will now contain the following files:
+
+```
+keyboardkat-combined.js
+keyboardkat-combined.min.js
+
+mousetrap.js
+mousetrap-global-bind.js
+keyboardkat.js
+
+mousetrap.min.js
+mousetrap-global-bind.min.js
+keyboardkat.min.js
+```
