@@ -18,11 +18,9 @@
   var currentFlap = 'all';
   var callbackCounter = 0;
 
-  var KeyboardKat = {
-
-    // bind(keys, [, flap][, action], callback)
-    bind: function (keys, flap, action, callback) {
-      if(!keys || keys.length === 0) throw new Error("bind must be called with keys");
+  function makeBinder(binder, name) {
+    return function (keys, flap, action, callback) {
+      if(!keys || keys.length === 0) throw new Error(name + "must be called with keys");
       keys = keys instanceof Array ? keys : [keys];
 
       if(action instanceof Function && isAction(flap)) {
@@ -49,7 +47,7 @@
       callbackStore[serializedKeys] = callbackStore[serializedKeys] || [];
       callbackStore[serializedKeys].push({ callback: callback, flap: flap, id: callbackId });
 
-      Mousetrap.bind(keys, function () {
+      binder.call(Mousetrap, keys, function () {
         var callbacks = callbackStore[serializedKeys];
         var args = arguments;
 
@@ -70,17 +68,15 @@
       return function () {
         callbackStore[serializedKeys] = callbackStore[serializedKeys].filter(function (cbInfo) { return cbInfo.id !== callbackId; });
       };
-    },
+    }
+  }
 
-    bindGlobal: function (keys, flap, action, callback) {
-      var unsubscribeFunc = this.bind(keys, flap, action, callback);
-      callback = [flap, action, callback].filter(function (v) { return v instanceof Function; })[0];
-      action = [flap, action].filter(function (v) { return isAction(v); })[0];
+  var KeyboardKat = {
 
-      Mousetrap.bindGlobal(keys, callback, action);
+    // bind(keys, [, flap][, action], callback)
+    bind: makeBinder(Mousetrap.bind, 'bind'),
 
-      return unsubscribeFunc;
-    },
+    bindGlobal: makeBinder(Mousetrap.bindGlobal, 'bindGlobal'),
 
     // unbind(keys[, flap]])
     unbind: function (keys, flap) {
