@@ -30,7 +30,7 @@ gulp.task('embed-mousetrap', ['copy-to-dist'], function () {
 });
 
 gulp.task('publish', ['embed-mousetrap'], function () {
-  return gulp.src(['dist/keyboardkat.js', 'dist/keyboardkat-combined.js'])
+  return gulp.src(['dist/*.js'])
              .pipe(uglify())
              .pipe(rename({ suffix: '.min' }))
              .pipe(gulp.dest('dist'));

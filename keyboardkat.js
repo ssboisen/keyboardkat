@@ -73,12 +73,10 @@
 
   var KeyboardKat = {
 
-    // bind(keys, [, flap][, action], callback)
     bind: makeBinder(Mousetrap.bind, 'bind'),
 
     bindGlobal: makeBinder(Mousetrap.bindGlobal, 'bindGlobal'),
 
-    // unbind(keys[, flap]])
     unbind: function (keys, flap) {
       if(!keys || keys.length === 0) throw new Error("unbind must be called with keys");
       keys = keys instanceof Array ? keys : [keys];
@@ -96,7 +94,6 @@
       }
     },
 
-    // useFlap([flap])
     useFlap: function (flap) {
       currentFlap = flap ? flap : 'all';
     },
